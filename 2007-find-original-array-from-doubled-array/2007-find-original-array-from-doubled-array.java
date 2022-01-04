@@ -23,9 +23,9 @@ class Solution {
             }else if(pq.peek()*2==changed[i]){
                 //System.out.println("pq "+pq.peek());
                 
-                if(pos>=ans.length){
-                   return new int[]{};
-                }
+                // if(pos>=ans.length){
+                //    return new int[]{};
+                // }
                 
                 ans[pos++] = pq.poll();
                 
