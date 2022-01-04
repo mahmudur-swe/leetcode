@@ -10,34 +10,37 @@ class Solution {
         
         int[] ans = new int[changed.length/2];
         
-        PriorityQueue<Integer> pq = new PriorityQueue();
+        
+        int k = 1;
         
         for(int i=0;i<changed.length;i++){
             
-            //System.out.println(changed[i] + " " + pq.size());
+            //System.out.println(changed[i] +" " + k);
             
-            if(pq.size()==0){
-                
-                pq.add(changed[i]);
-                
-            }else if(pq.peek()*2==changed[i]){
-                //System.out.println("pq "+pq.peek());
-                
-                // if(pos>=ans.length){
-                //    return new int[]{};
-                // }
-                
-                ans[pos++] = pq.poll();
-                
-                //System.out.println("pq size "+pq.size());
-            }else{
-                //System.out.println("pq peek "+pq.peek());
-                pq.add(changed[i]);
+            if(changed[i] == -1){
+                continue;
+            }
+            
+            if(k<=i){
+                k = i+1;
+            }
+            
+            while(k<changed.length && changed[i]*2!=changed[k]){
+                k++;
+            }
+            
+            if(k<changed.length){
+                if(pos>=ans.length){
+                    return new int[]{};
+                }
+                changed[k] = -1;
+                ans[pos++] = changed[i];
+                k++;
             }
             
         }
         
-        if(pq.size()==0){
+        if(pos == ans.length){
             return ans;
         }
         
