@@ -11,6 +11,7 @@ class Node {
 class Solution {
     
     public Node lowestCommonAncestor(Node p, Node q) {
+        
         List<Node> pathP = new ArrayList();
         List<Node> pathQ = new ArrayList();
         
@@ -20,27 +21,13 @@ class Solution {
         }
         
         while(q!=null){
-            pathQ.add(q);
+            if(pathP.contains(q)){
+                return q;
+            }
             q = q.parent;
         }
         
-        int ps=pathP.size()-1;
-        int qs=pathQ.size()-1;
-        
-        Node ans = null;
-        
-        while(true){
-            
-            if(ps< 0 || qs<0){
-                return ans;
-            }
-            
-            if(pathP.get(ps--).val == pathQ.get(qs--).val){
-                ans = pathP.get(ps+1);
-            }else{
-                return ans;
-            }
-            
-        }
+        return null;
+       
     }
 }
