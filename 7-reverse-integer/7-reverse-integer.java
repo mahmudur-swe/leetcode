@@ -14,19 +14,16 @@ class Solution {
         
         while(x!=0){
             
-            //System.out.println((ans*10));
-            
             
             if(((ans*10)/10 != ans  || (ans*10 + (x%10))/10 != ans)){
                 return 0;
             }
             
             
-            ans = ans*10 + (x%10);
+            ans *= 10; ans+=(x%10);
             
-            //System.out.println(ans);
             
-            x =  x/10;
+            x/=10;
         }
         
         return ans;
