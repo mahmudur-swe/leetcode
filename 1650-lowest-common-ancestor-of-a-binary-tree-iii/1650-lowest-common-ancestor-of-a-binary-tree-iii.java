@@ -10,16 +10,24 @@ class Node {
 
 class Solution {
     
-public Node lowestCommonAncestor(Node p, Node q) {
-        Set<Integer> nodes = new HashSet<>();
-        while (p != null) {
-            nodes.add(p.val);
+    public Node lowestCommonAncestor(Node p, Node q) {
+        
+        List<Node> pathP = new ArrayList();
+        List<Node> pathQ = new ArrayList();
+        
+        while(p!=null){
+            pathP.add(p);
             p = p.parent;
         }
-        while (q != null) {
-            if (nodes.contains(q.val)) return q;
+        
+        while(q!=null){
+            if(pathP.contains(q)){
+                return q;
+            }
             q = q.parent;
         }
-        return q;
+        
+        return null;
+       
     }
 }
