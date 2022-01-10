@@ -20,7 +20,7 @@ class Solution {
         }
         
         while(q!=null){
-            if(pathP.containsKey(q.val)){
+            if(pathP.get(q.val)!=null){
                 return q;
             }
             q = q.parent;
