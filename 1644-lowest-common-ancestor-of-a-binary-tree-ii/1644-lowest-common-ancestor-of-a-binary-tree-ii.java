@@ -11,6 +11,7 @@ class Solution {
     boolean isFoundP;
     boolean isFoundQ;
     
+    
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         root = getAns(root,p,q);
         
@@ -24,34 +25,25 @@ class Solution {
     
     public TreeNode getAns(TreeNode root, TreeNode p, TreeNode q) {
         
+        
         if(root == null){
             return null;
         }
         
         if(root.val == p.val){
-            isFoundP = true;
-            
-            getAns(root.left,p,q);
-            getAns(root.right,p,q);
-            
-            
-            return root;
+            isFoundP = true;    
         }
         
         
         if(root.val == q.val){
             isFoundQ = true;
             
-            getAns(root.left,p,q);
-            getAns(root.right,p,q);
-            
-            return root;
         }
         
         TreeNode left = getAns(root.left,p,q);
         TreeNode right = getAns(root.right,p,q);
         
-        if(left!=null && right!=null){
+        if((left!=null && right!=null) || (root.val == p.val || root.val == q.val)){
             return root;
         }else if(left!=null){
             return left;
