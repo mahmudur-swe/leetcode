@@ -12,16 +12,15 @@ class Solution {
     
     public Node lowestCommonAncestor(Node p, Node q) {
         
-        List<Node> pathP = new ArrayList();
-        List<Node> pathQ = new ArrayList();
+        Map<Integer,Boolean> pathP = new HashMap();
         
         while(p!=null){
-            pathP.add(p);
+            pathP.put(p.val,true);
             p = p.parent;
         }
         
         while(q!=null){
-            if(pathP.contains(q)){
+            if(pathP.containsKey(q.val)){
                 return q;
             }
             q = q.parent;
