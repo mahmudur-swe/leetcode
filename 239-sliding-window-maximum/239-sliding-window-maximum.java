@@ -6,7 +6,7 @@ class Solution {
         
         int[] ans = new int[nums.length-k+1];
         int pos = 0;
-        ans[0] = Integer.MIN_VALUE;
+        
         for(int i=0;i<k;i++){
             
             while(pq.size()>0 && nums[pq.getLast()]<nums[i]){
@@ -15,9 +15,9 @@ class Solution {
             
             pq.addLast(i);
             
-            ans[pos] = Math.max(ans[0],nums[i]);
-            
         }
+        
+        ans[pos++] = nums[pq.getFirst()];
         
         
         for(int i=k;i<nums.length;i++){
@@ -34,7 +34,7 @@ class Solution {
             
             pq.addLast(i);
                 
-            ans[++pos] = nums[pq.getFirst()];
+            ans[pos++] = nums[pq.getFirst()];
             
             
         }
