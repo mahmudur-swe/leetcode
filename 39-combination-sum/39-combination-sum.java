@@ -14,34 +14,30 @@ class Solution {
         
         Arrays.sort(this.candidates);
         
-        getAns(new LinkedList(),0);
+        getAns(new LinkedList(),0,0);
         
         return ans;
     }
     
-    private void getAns(LinkedList<Integer> res,int sum){
+    private void getAns(LinkedList<Integer> res,int sum,int pos){
         
         if(target == sum){
             
             ArrayList<Integer> r = new ArrayList(res);
-            Collections.sort(r);
-            
-            if(!ans.contains(r)){
-                ans.add(r);
-            }
+            ans.add(r);
             return;
         }
         if(sum>target){
             return;
         }
         
-        for(int i=0;i<candidates.length;i++){
+        for(int i=pos;i<candidates.length;i++){
             if(i>0 && candidates[i-1] == candidates[i]){
                 continue;
             }
             if(sum+candidates[i]<=target){
                 res.add(candidates[i]);
-                getAns(res,sum+candidates[i]);
+                getAns(res,sum+candidates[i],i);
                 res.removeLast(); 
             }
         }
