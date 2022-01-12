@@ -11,19 +11,17 @@ class Solution {
         
         for(int i=1;i<=nums.length;i++){
             
-            
             maxPos = Math.max(maxPos,i+nums[i-1]);
             
             if(prePos == i){
                 prePos = maxPos;
                 jump++;
+                if(prePos >= nums.length){
+                     return jump;
+                }
             }
             
-            
-            if(prePos >= nums.length){
-                return jump;
-            }
-            else if(maxPos>=nums.length){
+            if(maxPos>=nums.length){
                 return jump+1;
             }
         }
