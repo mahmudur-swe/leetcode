@@ -23,6 +23,9 @@ class Solution {
             if(prePos >= nums.length){
                 return jump;
             }
+            else if(maxPos>=nums.length){
+                return jump+1;
+            }
         }
         
         return jump;
