@@ -15,7 +15,7 @@ class Solution {
                 
                 if(j+1 == s.length()){
                     
-                    tmp.append(cnt+"");
+                    tmp.append(cnt);
                     tmp.append(s.charAt(j));
                     cnt = 1;
                     
@@ -25,7 +25,7 @@ class Solution {
                 if(s.charAt(j) == s.charAt(j+1)){
                     cnt++;
                 }else{
-                    tmp.append(cnt+"");
+                    tmp.append(cnt);
                     tmp.append(s.charAt(j));
                     cnt = 1;
                 }
