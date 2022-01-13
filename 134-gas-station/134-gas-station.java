@@ -11,14 +11,13 @@ class Solution {
         for(int i=0;i<gas.length;i++){
             
         
-            int sum = val - cost[i] + gas[i];
+            val += (gas[i] - cost[i]);
             
-            if(sum<=min){
+            if(val<=min){
                 index = i;
-                min = sum;
+                min = val;
             }
             
-            val = sum;
             
         }
         
