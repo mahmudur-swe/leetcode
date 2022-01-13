@@ -14,16 +14,14 @@ class Solution {
             for(int j=0;j<s.length();j++){
                 
                 if(j+1 == s.length()){
-                    
                     tmp.append(cnt);
                     tmp.append(s.charAt(j));
                     cnt = 1;
-                    
                     break;
                 }
                 
                 if(s.charAt(j) == s.charAt(j+1)){
-                    cnt++;
+                    ++cnt;
                 }else{
                     tmp.append(cnt);
                     tmp.append(s.charAt(j));
