@@ -1,20 +1,28 @@
 class Solution {
-    public List<String> subdomainVisits(String[] cpdomains) {
-        Map<String, Integer> counts = new HashMap();
-        for (String domain: cpdomains) {
-            String[] cpinfo = domain.split("\\s+");
-            String[] frags = cpinfo[1].split("\\.");
-            int count = Integer.valueOf(cpinfo[0]);
-            String cur = "";
-            for (int i = frags.length - 1; i >= 0; --i) {
-                cur = frags[i] + (i < frags.length - 1 ? "." : "") + cur;
-                counts.put(cur, counts.getOrDefault(cur, 0) + count);
+  public List<String> subdomainVisits(String[] cpdomains) {
+
+        List<String> result = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>(); // key: subdomain, value: frequency
+        StringBuilder resultStringBuilder = new StringBuilder();
+
+        for (String cpdomain : cpdomains) {
+            int indexSpace = cpdomain.indexOf(' ');
+            int numClicks = Integer.parseInt(cpdomain.substring(0, indexSpace));
+            String domain = cpdomain.substring(indexSpace + 1);
+            resultStringBuilder.setLength(0);
+            resultStringBuilder.append(domain);
+            while (true) {
+                map.put(resultStringBuilder.toString(), map.getOrDefault(resultStringBuilder.toString(), 0) + numClicks);
+                int dotPosition = resultStringBuilder.indexOf(".");
+                if (dotPosition == -1)
+                    break;
+                resultStringBuilder.delete(0, dotPosition + 1);
             }
         }
 
-        List<String> ans = new ArrayList();
-        for (String dom: counts.keySet())
-            ans.add("" + counts.get(dom) + " " + dom);
-        return ans;
+        for (String domain : map.keySet())
+            result.add(map.get(domain) + " " + domain);
+
+        return result;
     }
 }
