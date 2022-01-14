@@ -1,11 +1,11 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
         
-        boolean[][] row = new boolean[10][10];
+        boolean[][] row = new boolean[9][9];
         
-        boolean[][] col = new boolean[10][10];
+        boolean[][] col = new boolean[9][9];
         
-        boolean[][] box = new boolean[10][10];
+        boolean[][] box = new boolean[9][9];
         
         for(int i=0;i<9;i++){
             
@@ -13,7 +13,7 @@ class Solution {
                 
                 if(board[i][j]!='.'){
                     
-                    int val = board[i][j]-'0';
+                    int val = board[i][j]-'0'-1;
                     if(row[val][i]){
                         return false;
                     }
