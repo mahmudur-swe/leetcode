@@ -22,7 +22,7 @@ class Solution {
             return;
         }
         
-        if(f>0){
+        if(f>0 && b>=f){
             
             s.append('(');
             getAns(s,f-1,b);
@@ -32,7 +32,8 @@ class Solution {
             s.deleteCharAt(s.length()-1);
             
         }
-        if(b>0){
+        
+        if(b>=f){
             s.append(')');
             getAns(s,f,b-1);
             s.deleteCharAt(s.length()-1);
