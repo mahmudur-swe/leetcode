@@ -5,7 +5,7 @@ class Solution {
         int sum = 0;
         int ans = 0;
         
-        map.put(0,1);
+        //map.put(0,1);
         
         for(int num:nums){
             
@@ -13,6 +13,10 @@ class Solution {
             
             if(map.containsKey(sum-k)){
                 ans+= map.get(sum-k);
+            }
+            
+            if(sum==k){
+                ans++;
             }
             
             map.put(sum,map.getOrDefault(sum,0)+1);
