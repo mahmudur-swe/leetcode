@@ -1,32 +1,51 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
         
-        if(intervals.length<=1){
-            return intervals;
-        }
-        
-        Arrays.sort(intervals,Comparator.comparingInt(a -> a[0]));
-  
-        int[] last = intervals[0];
+        Arrays.sort(intervals,(a,b) -> Integer.compare(a[0],b[0]));
         
         List<int[]> ans = new ArrayList();
         
+        int[] current = null;
+        
+        current = intervals[0];
+        
         for(int i=1;i<intervals.length;i++){
             
-            if(intervals[i][0]>last[1]){
-                ans.add(last);
-                last = intervals[i];
+            int[] merge = merge(current,intervals[i]);
+            
+            if(merge == null){
+                //System.out.println("c1 "+current[0]+" " + current[1]);
+                ans.add(current);
+                current = intervals[i];
+                 //System.out.println("c2 "+current[0]+" " + current[1]);
             }else{
-                last[1] = Math.max(intervals[i][1],last[1]);
+                //System.out.println(merge[0]+" "+merge[1]);
+                current = merge;
             }
         }
         
-        ans.add(last);
+        if(current!=null){
+            ans.add(current);
+        }
         
-        int[][] res = new int[ans.size()][2];
-        ans.toArray(res);
+        int[][] result = new int[ans.size()][2];
         
+        for(int i=0;i<ans.size();i++){
+            result[i] = ans.get(i);
+        }
         
-        return res;
+        return result;
     }
+    
+    public int[] merge(int[] l1,int[] l2){
+        
+        if(l2[0]>=l1[0] && l2[0]<=l1[1]){
+            l1[0] = Math.min(l1[0],l2[0]);
+            l1[1] = Math.max(l1[1],l2[1]);
+            return l1;
+        }
+        
+        return null;
+    }
+    
 }
