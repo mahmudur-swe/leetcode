@@ -1,34 +1,19 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
-        
-        if(intervals.length<=1){
-            return intervals;
-        }
-        
-        Arrays.sort(intervals,Comparator.comparingInt(a -> a[0]));
-  
-        int[] last = intervals[0];
-        
-        List<int[]> ans = new ArrayList();
-        
-        for(int i=1;i<intervals.length;i++){
-            
-            if(intervals[i][0]>last[1]){
-                ans.add(last);
-                last = intervals[i];
-            }else{
-                last[1] = Math.max(intervals[i][1],last[1]);
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        LinkedList<int[]> merged = new LinkedList<>();
+        for (int[] interval : intervals) {
+            // if the list of merged intervals is empty or if the current
+            // interval does not overlap with the previous, simply append it.
+            if (merged.isEmpty() || merged.getLast()[1] < interval[0]) {
+                merged.add(interval);
+            }
+            // otherwise, there is overlap, so we merge the current and previous
+            // intervals.
+            else {
+                merged.getLast()[1] = Math.max(merged.getLast()[1], interval[1]);
             }
         }
-        
-        ans.add(last);
-        
-        int[][] result = new int[ans.size()][2];
-        
-        for(int i=0;i<ans.size();i++){
-            result[i] = ans.get(i);
-        }
-        
-        return result;
+        return merged.toArray(new int[merged.size()][]);
     }
 }
