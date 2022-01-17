@@ -1,23 +1,36 @@
 class UnionFind {
     
     private int[] parent;
+    private int[] size;
+    
     
     // For efficiency, we aren't using makeset, but instead initialising
     // all the sets at the same time in the constructor.
     public UnionFind(int n) {
         parent = new int[n];
+        size = new int[n];
         for (int node = 0; node < n; node++) {
             parent[node] = node;
+            size[node] = 1;
         }
     }
     
     // The find method, without any optimizations. It traces up the parent
     // links until it finds the root node for A, and returns that root.
     public int find(int A) {
-        while (parent[A] != A) {
-            A = parent[A];
+        
+        int root = A;
+        
+        while (parent[root] != root) {
+            root = parent[root];
         }
-        return A;
+        
+        while(A != root){
+            int tmp = parent[A];
+            parent[A] = root;
+            A = tmp;
+        }
+        return root;
     }
 
     // The union method, without any optimizations. It returns True if a
@@ -31,7 +44,17 @@ class UnionFind {
             return false;
         }
         // Merge the sets containing A and B.
-        parent[rootA] = rootB;
+        
+        if(size[rootA] < size[rootB]){
+            
+            parent[rootA] = rootB;
+            size[rootB]+= size[rootA];
+            
+        }else{
+            parent[rootB] = rootA;
+            size[rootA] += size[rootB];
+        }
+        
         return true;
     } 
 }
