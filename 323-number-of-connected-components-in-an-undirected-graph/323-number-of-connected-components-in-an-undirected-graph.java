@@ -1,77 +1,45 @@
-class Solution {
-    
-    int parent[];
-    int size[];
-    
-    
-    private int find(int A){
-        
-        int root = A;
-        
-        while(root != parent[root]){
-            root = parent[root];
-        }
-    
-        while( A != root) {
-            int old = parent[A];
-            parent[A] = root;
-            A = old;
-            
-            
+public class Solution {
+
+    private int find(int[] representative, int vertex) {
+        if (vertex == representative[vertex]) {
+            return vertex;
         }
         
-        return root;
+        return representative[vertex] = find(representative, representative[vertex]);
+    }
+    
+    private int combine(int[] representative, int[] size, int vertex1, int vertex2) {
+        vertex1 = find(representative, vertex1);
+        vertex2 = find(representative, vertex2);
         
+        if (vertex1 == vertex2) {
+            return 0;
+        } else {
+            if (size[vertex1] > size[vertex2]) {
+                size[vertex1] += size[vertex2];
+                representative[vertex2] = vertex1;
+            } else {
+                size[vertex2] += size[vertex1];
+                representative[vertex1] = vertex2;
+            }
+            return 1;
+        }
     }
 
-    
-    
-    
     public int countComponents(int n, int[][] edges) {
+        int[] representative = new int[n];
+        int[] size = new int[n];
         
-        
-        parent  = new int[n];
-        size = new int[n];
-        
-        for(int i=0;i<n;i++){
-            parent[i] = i;
+        for (int i = 0; i < n; i++) {
+            representative[i] = i;
             size[i] = 1;
         }
         
-        for(int[] edge:edges){
-            
-            int rootA = find(edge[0]);
-            int rootB = find(edge[1]);
-            
-            if(rootA != rootB){
-                
-                if(size[rootA]>size[rootB]){
-                    
-                    parent[rootB] = rootA;
-                    size[rootA] += rootB;
-                    
-                }else{
-                       parent[rootA] = rootB;
-                        size[rootB] += rootA;
-                 
-                }
-                
-            }
-            
-            
-            
+        int components = n;
+        for (int i = 0; i < edges.length; i++) { 
+            components -= combine(representative, size, edges[i][0], edges[i][1]);
         }
-        
-        Set<Integer> ans = new HashSet();
-        
-        for(int i=0;i<n;i++){
-            
-            ans.add(find(i));
-            
-        }
-        
-        
-        return ans.size();
-        
+
+        return components;
     }
 }
