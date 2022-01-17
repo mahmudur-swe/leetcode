@@ -1,55 +1,77 @@
 class Solution {
     
-    boolean[] isVisited;
-    List<Integer>[] graph;
+    int parent[];
+    int size[];
     
-    public void dfs(int node){
+    
+    private int find(int A){
         
-        isVisited[node] = true;
+        int root = A;
         
-        
-        for(int val:graph[node]){
-            if(!isVisited[val]){
-                dfs(val);
-            }
+        while(root != parent[root]){
+            root = parent[root];
+        }
+    
+        while( A != root) {
+            int old = parent[A];
+            parent[A] = root;
+            A = old;
+            
+            
         }
         
+        return root;
+        
     }
+
+    
     
     
     public int countComponents(int n, int[][] edges) {
         
         
-        graph  = new List[n];
+        parent  = new int[n];
+        size = new int[n];
         
         for(int i=0;i<n;i++){
-            graph[i] = new ArrayList();
+            parent[i] = i;
+            size[i] = 1;
         }
         
         for(int[] edge:edges){
             
-            graph[edge[0]].add(edge[1]);
-            graph[edge[1]].add(edge[0]);
+            int rootA = find(edge[0]);
+            int rootB = find(edge[1]);
+            
+            if(rootA != rootB){
+                
+                if(size[rootA]>size[rootB]){
+                    
+                    parent[rootB] = rootA;
+                    size[rootA] += rootB;
+                    
+                }else{
+                       parent[rootA] = rootB;
+                        size[rootB] += rootA;
+                 
+                }
+                
+            }
+            
+            
             
         }
         
-        isVisited = new boolean[n];
-        
-        int ans =0;
+        Set<Integer> ans = new HashSet();
         
         for(int i=0;i<n;i++){
             
-            if(!isVisited[i] ){
-                
-                dfs(i);
-                
-                ans++;
-            }
+            ans.add(find(i));
             
         }
         
         
-        return ans;
+        return ans.size();
         
     }
 }
