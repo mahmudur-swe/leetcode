@@ -12,13 +12,13 @@ class Solution {
             root = parent[root];
         }
     
-        while( A != root) {
-            int old = parent[A];
-            parent[A] = root;
-            A = old;
+//         while( A != root) {
+//             int old = parent[A];
+//             parent[A] = root;
+//             A = old;
             
             
-        }
+//         }
         
         return root;
         
