@@ -64,34 +64,24 @@ class Solution {
         // int index1 = 1;
         // int index2 = 2;
         
+        Arrays.sort(connections, (a, b) -> a[2] - b[2]);
+        
         for(int i=0;i<connections.length;i++){
             
             //pq.add(new Edge(connections[i][0],connections[i][1],connections[i][2]));
-            pq.add(new Edge(connections[i][0],connections[i][1],connections[i][2]));
+            int rootA = find(connections[i][0]);
             
-        }
-        
-
-        while(pq.size()>0){
-            
-            Edge e = pq.poll();
-            
-            int rootA = find(e.node);
-            
-            int rootB = find(e.dest);
+            int rootB = find(connections[i][1]);
             
             if(rootA!=rootB){
                 
-                cost += e.cost;
+                cost += connections[i][2];
                 
-                totalVisited--;
-                
-                if(totalVisited == 1){
+                if(--totalVisited == 1){
                     return cost;
-        }
+                }
                 
                 if(size[rootA]>size[rootB]){
-                    
                     parent[rootB] = rootA;
                     size[rootA] += size[rootB];
                 }else{
@@ -103,6 +93,8 @@ class Solution {
             }
             
         }
+        
+
         
         
         
