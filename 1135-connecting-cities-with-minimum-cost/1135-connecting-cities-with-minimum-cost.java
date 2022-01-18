@@ -1,79 +1,110 @@
 class Solution {
     
+    int[] parent;
+    int[] size;
+    
     class Edge{
         public int node;
+        public int dest;
         public int cost;
-        public Edge(int node,int cost){
+        public Edge(int node,int dest,int cost){
             this.node = node;
+            this.dest = dest;
             this.cost = cost;
         };
     }
     
+    private int find(int A){
+        
+        int root = A;
+        
+        while(parent[root]!=root){
+            root = parent[root];
+        }
+        
+        while(A!=root){
+            int tmp = parent[A];
+            parent[A] = root;
+            A = tmp;
+            
+        }
+        
+        return root;
+        
+    }
+    
     public int minimumCost(int n, int[][] connections) {
         
-        Map<Integer,List<Edge>> map = new HashMap();
+//         Map<Integer,List<Edge>> map = new HashMap();
         
-        boolean[] isVisited = new boolean[n+1];
+//         Map<String,Boolean> isInserted = new HashMap();
+        
+//        boolean[] isVisited = new boolean[n+1];
+        
+        parent = new int[n+1];
+        size = new int[n+1];
+        
+        for(int i=0;i<=n;i++){
+            parent[i] = i;
+            size[i] = 1;
+        }
+        
         int cost = 0;
-        int totalVisited = 0;
+        int totalVisited = n;
         
-        totalVisited = 1;
+        //totalVisited = 2;
         
-    PriorityQueue<Edge> pq = new PriorityQueue(new Comparator<Edge>() {
+        PriorityQueue<Edge> pq = new PriorityQueue(new Comparator<Edge>() {
     public int compare(Edge edge1, Edge edge2) {
         
         return edge1.cost - edge2.cost;
     }
 });
+        // int max = Integer.MAX_VALUE;
+        // int index1 = 1;
+        // int index2 = 2;
         
         for(int i=0;i<connections.length;i++){
             
-            List<Edge> list1 = map.getOrDefault(connections[i][0],new ArrayList());
-            
-            list1.add(new Edge(connections[i][1],connections[i][2]));
-            
-            map.put(connections[i][0], list1);
-            
-            
-            List<Edge> list2 = map.getOrDefault(connections[i][1],new ArrayList());
-            
-            list2.add(new Edge(connections[i][0],connections[i][2]));
-            
-            map.put(connections[i][1], list2);
+            //pq.add(new Edge(connections[i][0],connections[i][1],connections[i][2]));
+            pq.add(new Edge(connections[i][0],connections[i][1],connections[i][2]));
             
         }
         
-        
-        pq.addAll(map.get(1));
-        isVisited[1] = true;
 
         while(pq.size()>0){
             
             Edge e = pq.poll();
             
-            //System.out.println(e.node +" " + e.cost);
+            int rootA = find(e.node);
             
-            if(isVisited[e.node]){
-                continue;
-            }
+            int rootB = find(e.dest);
             
-            totalVisited++;
-            cost+= e.cost;
-            
-            if(totalVisited==n){
-                return cost;
-            }
-            
-            isVisited[e.node] = true;
-            
-            for(Edge ex:map.get(e.node)){
-                if(!isVisited[ex.node]){
-                    pq.add(ex);
+            if(rootA!=rootB){
+                
+                cost += e.cost;
+                
+                totalVisited--;
+                
+                if(totalVisited == 1){
+                    return cost;
+        }
+                
+                if(size[rootA]>size[rootB]){
+                    
+                    parent[rootB] = rootA;
+                    size[rootA] += size[rootB];
+                }else{
+                    parent[rootA] = rootB;
+                    size[rootB] += size[rootA];
                 }
+                
+                
             }
-            
             
         }
+        
+        
         
         return -1;
         
