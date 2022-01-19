@@ -33,24 +33,22 @@ class Solution {
         next = new HashMap();
         
         for(int i=0;i<startTime.length;i++){
-            
             nodes.add(new Node(startTime[i],endTime[i],profit[i]));
-            
         }
         
         Collections.sort(nodes,new Comparator<Node>(){
             public int compare(Node node1,Node node2){
                 
-                if(node1.start == node2.start){
+//                 if(node1.start == node2.start){
                     
-                    if(node1.end == node2.end){
+//                     if(node1.end == node2.end){
                         
-                        return node2.profit - node1.profit;
-                    }
+//                         return node2.profit - node1.profit;
+//                     }
                     
-                    return node1.end - node2.end;
+//                     return node1.end - node2.end;
                     
-                }
+//                 }
                 
                 return node1.start-node2.start;
                 
@@ -105,10 +103,10 @@ class Solution {
         
         Node nxt = getNextNode(pos);
         
-        //System.out.println("pos "+pos+" " + nxt.start);
         
-        if(pos!=nxt.start){
-            //System.out.println(nxt.start);
+        if(pos!=nxt.start)
+        {
+            
             x = Math.max(x,getAns(nxt.start,n));
         }
         
