@@ -1,5 +1,7 @@
 class Solution {
     
+    int max;
+    
     class Node{
         int start;
         int end;
@@ -51,7 +53,7 @@ class Solution {
             }
         });
         
-        int n = nodes.get(nodes.size()-1).start;
+        max = nodes.get(nodes.size()-1).start;
         int start = nodes.get(0).start;
         
         
@@ -62,12 +64,12 @@ class Solution {
             
         }
         
-        return getAns(start,n);
+        return getAns(start);
     }
     
-    public int getAns(int pos,int n){
+    public int getAns(int pos){
         
-        if(pos>n){
+        if(pos>max){
             return 0;
         }
         
@@ -80,19 +82,21 @@ class Solution {
         if(map.get(pos) != null){
             
             for(Node node:map.get(pos)){
-                
-                x = Math.max(x, node.profit + getAns(node.end,n));
-                
+                x = Math.max(x, node.profit + getAns(node.end));   
             }
             
         }
         
-        Node nxt = getNextNode(pos);
+        if(pos<max){
+                    Node nxt = getNextNode(pos);
         
         if(pos!=nxt.start)
         {
-            x = Math.max(x,getAns(nxt.start,n));
+            x = Math.max(x,getAns(nxt.start));
         }
+        }
+        
+
         
         dp.put(pos,x);
         
