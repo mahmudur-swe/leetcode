@@ -9,6 +9,8 @@ class Solution {
     
     int[][] routes;
     
+    List<List<Integer>> graph = new ArrayList();
+    
             
     int ans = -1;
     
@@ -26,18 +28,26 @@ class Solution {
         
         for(int i=0;i<routes.length;i++){
             
+            graph.add(new ArrayList());
+            
             Arrays.sort(routes[i]);
             
             if(Arrays.binarySearch(routes[i],source)>=0){
                 sourceBus.add(i);
             }
             
-            
             if(Arrays.binarySearch(routes[i],target)>=0){    
                 targetBus.add(i);
             }
             
         }
+        
+      for (int i = 0; i < routes.length; ++i)
+            for (int j = i+1; j < routes.length; ++j)
+                if (intersect(routes[i], routes[j])) {
+                    graph.get(i).add(j);
+                    graph.get(j).add(i);
+                }
 
         
         sourceBus.stream().forEach((bus) -> {
@@ -55,6 +65,15 @@ class Solution {
         
         return ans;
         
+    }
+    
+      public boolean intersect(int[] A, int[] B) {
+        int i = 0, j = 0;
+        while (i < A.length && j < B.length) {
+            if (A[i] == B[j]) return true;
+            if (A[i] < B[j]) i++; else j++;
+        }
+        return false;
     }
     
     private int getBusCount(int bus){
@@ -75,16 +94,15 @@ class Solution {
         
         int res = -1;
         
-        for(int i=0;i<routes[bus].length;i++){
-            
-            for(int j=0;j<routes.length;j++){
+        for(int j=0;j<graph.get(bus).size();j++){
                 
-                if(!isTraveled[j]){
+                if(!isTraveled[graph.get(bus).get(j)]){
                     
-                    int next = Arrays.binarySearch(routes[j],routes[bus][i]);
+                    //int next = Arrays.binarySearch(routes[j],routes[bus][i]);
                     
-                    if(next>=0){
-                        int val = getBusCount(j);
+                    //if(next>=0)
+                    {
+                        int val = getBusCount(graph.get(bus).get(j));
                         
                         if(val>0){
                              if(res==-1){
@@ -93,16 +111,11 @@ class Solution {
                                 res = Math.min(res, 1 + val);
                             }
                         }
-                        
-                       
-                        
                     }
                     
                 }
                 
             }
-            
-        }
         
         if(res==-1){
             return dp[bus] = 0;
