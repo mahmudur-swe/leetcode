@@ -42,7 +42,7 @@ class Solution {
         
         sourceBus.stream().forEach((bus) -> {
             int res = getBusCount(bus);
-            if(res>=0){
+            if(res>0){
                 if(ans == -1){
                     ans = res;
                 }else{
@@ -60,7 +60,7 @@ class Solution {
     private int getBusCount(int bus){
         
         if(isTraveled[bus]){
-            return Integer.MIN_VALUE;
+            return 0;
         }
         
         if(dp[bus]>=0){
@@ -86,7 +86,7 @@ class Solution {
                     if(next>=0){
                         int val = getBusCount(j);
                         
-                        if(val>=0){
+                        if(val>0){
                              if(res==-1){
                                 res = 1 + val;
                             }else{
@@ -105,8 +105,7 @@ class Solution {
         }
         
         if(res==-1){
-            
-            return dp[bus] = Integer.MIN_VALUE;
+            return dp[bus] = 0;
         }
         
         return dp[bus] = res;
