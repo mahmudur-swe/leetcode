@@ -1,73 +1,57 @@
+import java.awt.Point;
+
 class Solution {
-    
-    boolean[] isTraveled;
-    int[] dp;
-    
-    Set<Integer> sourceBus = new HashSet();
-    
-    Set<Integer> targetBus = new HashSet();
-    
-    int[][] routes;
-    
-    List<List<Integer>> graph = new ArrayList();
-    
-            
-    int ans = -1;
-    
-    public int numBusesToDestination(int[][] routes, int source, int target) {
-        
-        if(source == target){
-            return 0;
-        }
-        
-        isTraveled = new boolean[routes.length+1];
-        dp = new int[routes.length+1];   
-        Arrays.fill(dp,-1);
-        
-        this.routes = routes;
-        
-        for(int i=0;i<routes.length;i++){
-            
-            graph.add(new ArrayList());
-            
+    public int numBusesToDestination(int[][] routes, int S, int T) {
+        if (S==T) return 0;
+        int N = routes.length;
+
+        List<List<Integer>> graph = new ArrayList();
+        for (int i = 0; i < N; ++i) {
             Arrays.sort(routes[i]);
-            
-            if(Arrays.binarySearch(routes[i],source)>=0){
-                sourceBus.add(i);
-            }
-            
-            if(Arrays.binarySearch(routes[i],target)>=0){    
-                targetBus.add(i);
-            }
-            
+            graph.add(new ArrayList());
         }
-        
-      for (int i = 0; i < routes.length; ++i)
-            for (int j = i+1; j < routes.length; ++j)
+        Set<Integer> seen = new HashSet();
+        Set<Integer> targets = new HashSet();
+        Queue<Point> queue = new ArrayDeque();
+
+        // Build the graph.  Two buses are connected if
+        // they share at least one bus stop.
+        for (int i = 0; i < N; ++i)
+            for (int j = i+1; j < N; ++j)
                 if (intersect(routes[i], routes[j])) {
                     graph.get(i).add(j);
                     graph.get(j).add(i);
                 }
 
-        
-        sourceBus.stream().forEach((bus) -> {
-            int res = getBusCount(bus);
-            if(res>0){
-                if(ans == -1){
-                    ans = res;
-                }else{
-                     ans = Math.min(ans,res);
-                }
-             
+        // Initialize seen, queue, targets.
+        // seen represents whether a node has ever been enqueued to queue.
+        // queue handles our breadth first search.
+        // targets is the set of goal states we have.
+        for (int i = 0; i < N; ++i) {
+            if (Arrays.binarySearch(routes[i], S) >= 0) {
+                seen.add(i);
+                queue.offer(new Point(i, 0));
             }
-        });
-        
-        
-        return ans;
-        
+            if (Arrays.binarySearch(routes[i], T) >= 0)
+                targets.add(i);
+        }
+
+        while (!queue.isEmpty()) {
+            Point info = queue.poll();
+            int node = info.x, depth = info.y;
+            if (targets.contains(node)) return depth+1;
+            for (Integer nei: graph.get(node)) {
+                if (!seen.contains(nei)) {
+                    seen.add(nei);
+                    queue.offer(new Point(nei, depth+1));
+                }
+            }
+        }
+
+        return -1;
     }
-    
-      public boolean intersect(int[] A, int[] B) {
+
+    public boolean intersect(int[] A, int[] B) {
         int i = 0, j = 0;
         while (i < A.length && j < B.length) {
             if (A[i] == B[j]) return true;
@@ -75,56 +59,4 @@ class Solution {
         }
         return false;
     }
-    
-    private int getBusCount(int bus){
-        
-        if(isTraveled[bus]){
-            return 0;
-        }
-        
-        if(dp[bus]>=0){
-            return dp[bus];
-        }
-        
-        if(targetBus.contains(bus)){
-            return dp[bus] = 1;
-        }
-        
-        isTraveled[bus] = true;
-        
-        int res = -1;
-        
-        for(int j=0;j<graph.get(bus).size();j++){
-                
-                if(!isTraveled[graph.get(bus).get(j)]){
-                    
-                    //int next = Arrays.binarySearch(routes[j],routes[bus][i]);
-                    
-                    //if(next>=0)
-                    {
-                        int val = getBusCount(graph.get(bus).get(j));
-                        
-                        if(val>0){
-                             if(res==-1){
-                                res = 1 + val;
-                            }else{
-                                res = Math.min(res, 1 + val);
-                            }
-                        }
-                    }
-                    
-                }
-                
-            }
-        
-        if(res==-1){
-            return dp[bus] = 0;
-        }
-        
-        return dp[bus] = res;
-        
-        
-        
-    }
-    
 }
