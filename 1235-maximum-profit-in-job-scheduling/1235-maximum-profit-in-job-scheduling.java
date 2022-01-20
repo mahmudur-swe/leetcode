@@ -15,20 +15,22 @@ class Solution {
         }
     }
     
-    Map<Integer,Integer> dp;
+    //Map<Integer,Integer> dp;
     
+    int[] dp;
     
-    Map<Integer,List<Node>> map;
+    //Map<Integer,List<Node>> map;
     
     List<Node> nodes;
     
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
         
-        dp = new HashMap();
+        dp = new int[5*10001];
+        
+        Arrays.fill(dp,-1);
         
         nodes = new ArrayList();
         
-        map = new HashMap();
         
         for(int i=0;i<startTime.length;i++){
             nodes.add(new Node(startTime[i],endTime[i],profit[i]));
@@ -53,75 +55,54 @@ class Solution {
             }
         });
         
-        max = nodes.get(nodes.size()-1).start;
-        int start = nodes.get(0).start;
+
         
-        
-        for(Node node:nodes){
-            List<Node> ns = map.getOrDefault(node.start,new ArrayList());
-            ns.add(node);
-            map.put(node.start,ns);
-            
-        }
-        
-        return getAns(start);
+        return getAns(0);
     }
     
     public int getAns(int pos){
         
-        if(pos>max){
+        if(pos>=nodes.size()){
             return 0;
         }
         
-        if(dp.get(pos)!=null){
-            return dp.get(pos);
+        if(dp[pos]!=-1){
+            return dp[pos];
         }
         
-        int x = 0;
         
-        if(map.get(pos) != null){
-            
-            for(Node node:map.get(pos)){
-                x = Math.max(x, node.profit + getAns(node.end));   
-            }
-            
-        }
+        int index = getNextNode(nodes.get(pos).end);
         
-        if(pos<max){
-                    Node nxt = getNextNode(pos);
         
-        if(pos!=nxt.start)
-        {
-            x = Math.max(x,getAns(nxt.start));
-        }
-        }
+        int ans = Math.max(getAns(pos+1), nodes.get(pos).profit + getAns(index));
         
 
+        return dp[pos] = ans;
         
-        dp.put(pos,x);
-        
-        return x;
         
     }
     
-    private Node getNextNode(int endTime){
+    private int getNextNode(int endTime){
         
         int start = 0;
         int end = nodes.size()-1;
         
-        while(start<end){
+        int ans = end+1;
+        
+        while(start<=end){
             
             int mid = start + (end-start)/2;
             
-            if(nodes.get(mid).start <= endTime){
+            if(nodes.get(mid).start < endTime){
                 start = mid+1;
-            }else if(nodes.get(mid).start>endTime){
-                end = mid;
+            }else if(nodes.get(mid).start>=endTime){
+                end = mid-1;
+                ans = mid;
             }
             
         }
         
-        return nodes.get(end);
+        return ans;
         
     }
     
