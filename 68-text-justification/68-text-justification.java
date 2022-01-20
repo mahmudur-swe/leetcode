@@ -23,8 +23,7 @@ class Solution {
             
             
             if(end<words.length && curLength + words[end].length()+1 <= maxWidth){
-                curLength = curLength + words[end].length()+1;
-                end++;
+                curLength += (words[end++].length()+1);
             }else{
                 int wordCount = end - start;
                 
@@ -36,7 +35,6 @@ class Solution {
                 }else{
                     
                     int spaceExtra = maxWidth - curLength;
-                    
                     int envnSpace = spaceExtra/(wordCount-1);
                     int oddSpace = spaceExtra%(wordCount-1);
                     
@@ -49,13 +47,12 @@ class Solution {
                     
                     for(int i=start+1;i<end;i++){
                         
-                        if(oddSpace>0){
+                        if(oddSpace-- >0){
                           line += spaces[envnSpace+2];  
                         }else{
                            line += spaces[envnSpace+1];   
                         }
                         
-                        oddSpace--;
                         line += words[i];
                     }
                     
@@ -71,7 +68,6 @@ class Solution {
                 if(end < words.length){
                     
                     start = end;
-                
                     curLength = words[start].length();
                 }
  
