@@ -4,39 +4,26 @@ class Solution {
     
     public List<Integer> sequentialDigits(int low, int high) {
         
-        getList(1,1,2,low,high);
+        String max = "123456789";
+        
+        
+        for(int i=0;i<max.length();i++){
+            for(int j=i+1;j<max.length();j++){
+                
+                int val = Integer.parseInt(max.substring(i,j+1));
+                
+                if(val>=low && val<=high){
+                    ans.add(val);
+                }
+                
+            }
+            
+        }
+        
         Collections.sort(ans);
+        
         return ans;
     }
     
-    private void getList(int start,int val,int digit,int low,int high){
-        
 
-        if(start>9){
-            return;
-        }
-        
-        if(val>=low && val<=high){
-            ans.add(val);
-        }
-        
-        //System.out.println(start +" " + digit +" "+val);
-        
-        if(val>high || digit>9){
-            getList(start+1,start+1,start+2,low,high);
-            return;
-        }
-        
- 
-        
-        // if(digit>9){
-        //     return;
-        // }
-        
-        val = val*10+digit;
-        
-        getList(start,val,digit+1,low,high);
-        
-        
-    }
 }
