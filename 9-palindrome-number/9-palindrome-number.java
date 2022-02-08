@@ -1,6 +1,6 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        if(x<0){
+        if(x<0 || (x%10 == 0 && x != 0)){
             return false;
         }
         if(x<10){
@@ -10,7 +10,7 @@ class Solution {
         int input = x;
         int reverse = 0;
         
-        while(input>0){
+        while(input>reverse){
             
             reverse = reverse*10 + (input%10);
             input /= 10;
@@ -19,7 +19,7 @@ class Solution {
         
         //System.out.println(reverse);
         
-        return x == reverse;
+        return input == reverse || input == reverse/10;
     }
 }
 
