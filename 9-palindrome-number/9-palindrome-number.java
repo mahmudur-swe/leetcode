@@ -7,8 +7,8 @@ class Solution {
             return true;
         }
         
-        long input = x;
-        long reverse = 0;
+        int input = x;
+        int reverse = 0;
         
         while(input>0){
             
@@ -19,7 +19,7 @@ class Solution {
         
         //System.out.println(reverse);
         
-        return ((long) x ) == reverse;
+        return x == reverse;
     }
 }
 
