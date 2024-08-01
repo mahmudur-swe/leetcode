@@ -1,8 +1,26 @@
 class Solution {
     public int majorityElement(int[] nums) {
 
-        Arrays.sort(nums);
- return nums[nums.length/2];
+        int val = nums[0];
+        int fre = 0;
+
+        for(int num:nums){
+            
+            if(val == num){
+                fre++;
+            }else{
+                fre--;
+            }
+
+            if(fre == 0){
+                val = num;
+                fre = 1;
+            }
+
+
+        }
+
+        return val;
 
     }
 }
