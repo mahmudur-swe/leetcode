@@ -20,13 +20,11 @@ class Solution {
             }
 
         
-            for (int i = start; i < numsLength ; i += k) {
+            for (int i = start; i < (numsLength - k); i += k) {
 
                 int j = numsLength - k;
 
-                if (i + k > numsLength) {
-                    break;
-                }
+               
 
                 for (int v = 0; v < k; v++) {
                     int tmp = nums[i + v];
