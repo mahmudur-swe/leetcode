@@ -1,7 +1,8 @@
 class Solution {
     public void rotate(int[] nums, int k) {
 
-        k = k% nums.length;
+        k = k % nums.length;
+        
         if(k==0 || nums.length==1){
             return;
         }
@@ -14,9 +15,7 @@ class Solution {
 
     public void reverse(int[] nums,int l, int r){
         while(l<r){
-            swap(nums,l,r);
-            l++;
-            r--;
+            swap(nums,l++,r--);
         }
     }
 
