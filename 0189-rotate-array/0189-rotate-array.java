@@ -19,9 +19,8 @@ class Solution {
                 return;
             }
 
-            int tmp;
-
-            for (int i = start; i < (numsLength - k); i = i + k) {
+        
+            for (int i = start; i < (numsLength - k); i += k) {
 
                 int j = numsLength - k;
 
@@ -30,16 +29,15 @@ class Solution {
                 }
 
                 for (int v = 0; v < k; v++) {
-                    tmp = nums[i + v];
+                    int tmp = nums[i + v];
                     nums[i + v] = nums[j];
-                    nums[j] = tmp;
-                    j++;
+                    nums[j++] = tmp;
                 }
             }
 
             int newlength = length % k;
 
-            start = start + (length - newlength);
+            start += (length - newlength);
 
             length = newlength;
 
