@@ -20,7 +20,7 @@ class Solution {
             }
 
         
-            for (int i = start; i < (numsLength - k); i += k) {
+            for (int i = start; i < numsLength ; i += k) {
 
                 int j = numsLength - k;
 
