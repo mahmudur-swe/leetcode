@@ -7,18 +7,18 @@ class Solution {
 
         for(int i = 0;i<nums.length-1;i++){
 
+            
+        
+            maxReachPos = Math.max(maxReachPos,i+nums[i]);
+
             if(maxReachPos>=nums.length-1){
                 break;
             }
 
-            if(nums[i] == 0 && maxReachPos<=i){
+            if(maxReachPos<=i){
                 break;
             }
 
-        
-            maxReachPos = Math.max(maxReachPos,i+nums[i]);
-
-            
 
         }
 
