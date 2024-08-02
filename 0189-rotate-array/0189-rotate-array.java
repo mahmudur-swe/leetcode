@@ -19,12 +19,11 @@ class Solution {
                 return;
             }
 
+            int limit = (numsLength - k);
         
-            for (int i = start; i < (numsLength - k); i += k) {
+            for (int i = start; i < limit; i += k) {
 
-                int j = numsLength - k;
-
-               
+                int j = limit;
 
                 for (int v = 0; v < k; v++) {
                     int tmp = nums[i + v];
