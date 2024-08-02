@@ -1,7 +1,10 @@
 class Solution {
     public boolean canJump(int[] nums) {
         
-
+        
+        if(nums.length == 1){
+            return true;
+        }
 
         int maxReachPos = 0;
 
@@ -12,17 +15,17 @@ class Solution {
             maxReachPos = Math.max(maxReachPos,i+nums[i]);
 
             if(maxReachPos>=nums.length-1){
-                break;
+                return true;
             }
 
             if(maxReachPos<=i){
-                break;
+                return false;
             }
 
 
         }
 
-        return maxReachPos>=nums.length-1;
+        return false;
 
 
     }
