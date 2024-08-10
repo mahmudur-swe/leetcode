@@ -51,6 +51,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0042-trapping-rain-water](https://github.com/Tanim57/leetcode/tree/master/0042-trapping-rain-water) |
 | [0055-jump-game](https://github.com/Tanim57/leetcode/tree/master/0055-jump-game) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/Tanim57/leetcode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
 ## Greedy
 |  |
 | ------- |
@@ -65,4 +66,16 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/Tanim57/leetcode/tree/master/0042-trapping-rain-water) |
+## Tree
+|  |
+| ------- |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
+## Depth-First Search
+|  |
+| ------- |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
+## Binary Tree
+|  |
+| ------- |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
 <!---LeetCode Topics End-->
