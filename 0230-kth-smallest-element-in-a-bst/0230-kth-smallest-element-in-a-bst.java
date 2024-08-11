@@ -33,6 +33,10 @@ class Solution {
         if(root==null){
             return 0;
         }
+
+        if(ans!=-1){
+            return 0;
+        }
         
         int leftCount = treeCount(root.left,k);
 
