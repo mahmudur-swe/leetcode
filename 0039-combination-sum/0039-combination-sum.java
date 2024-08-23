@@ -33,9 +33,8 @@ class Solution {
 
 
         if(target==0){
-             if(ans.contains(values)==false){
-               ans.add(values);
-            }
+            
+             ans.add(values);
 
 
         if(with){
