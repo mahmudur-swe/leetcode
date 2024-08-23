@@ -1,27 +1,40 @@
 class Solution {
 
-  public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> list =new ArrayList<>();
-        List<Integer> arr=new ArrayList<>();
-        calc(0,arr,candidates,target,list);
-        return list;   
+    List<List<Integer>> ans = new ArrayList();
+
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+
+    
+        combinationSum(candidates, target , 0 , new ArrayList());
+
+        return ans;
     }
-    public void calc(int ind,List<Integer> arr,int[] cad,int tar,List<List<Integer>> list)
-    {
-        if(ind==cad.length)
-        {
-            if(tar==0)
-            {
-                list.add(new ArrayList<>(arr));
+
+
+    public void combinationSum(int[] candidates, int target,int pos,List<Integer> values) {
+        
+        if(pos == candidates.length){
+
+            if(target==0){
+               List<Integer> val = new ArrayList();
+                val.addAll(values);
+                ans.add(val);
             }
-                return;
+            return;
         }
-        if(cad[ind]<=tar)
-        {
-            arr.add(cad[ind]);
-            calc(ind,arr,cad,tar-cad[ind],list);
-            arr.remove(arr.size()-1);
+
+
+        if(target - candidates[pos]>=0){
+            values.add(candidates[pos]);
+            combinationSum(candidates, target - candidates[pos], pos, values);
+            values.remove(values.size()-1);
         }
-        calc(ind+1,arr,cad,tar,list);
+
+        combinationSum(candidates, target, pos+1, values);
+
+    
+
+
     }
 }
