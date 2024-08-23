@@ -30,9 +30,6 @@ class Solution {
 
         combinationSum(candidates, target, pos+1, res2);
 
-        List<Integer> res3 = new ArrayList();
-
-        res3.addAll(values);
         res2.add(candidates[pos]);
 
         combinationSum(candidates, target - candidates[pos], pos, res2);
