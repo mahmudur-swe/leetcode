@@ -47,12 +47,14 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Math
 |  |
 | ------- |
+| [0070-climbing-stairs](https://github.com/Tanim57/leetcode/tree/master/0070-climbing-stairs) |
 | [0189-rotate-array](https://github.com/Tanim57/leetcode/tree/master/0189-rotate-array) |
 ## Dynamic Programming
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/Tanim57/leetcode/tree/master/0042-trapping-rain-water) |
 | [0055-jump-game](https://github.com/Tanim57/leetcode/tree/master/0055-jump-game) |
+| [0070-climbing-stairs](https://github.com/Tanim57/leetcode/tree/master/0070-climbing-stairs) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/Tanim57/leetcode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
 | [0124-binary-tree-maximum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
 ## Greedy
@@ -96,4 +98,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0039-combination-sum](https://github.com/Tanim57/leetcode/tree/master/0039-combination-sum) |
+## Memoization
+|  |
+| ------- |
+| [0070-climbing-stairs](https://github.com/Tanim57/leetcode/tree/master/0070-climbing-stairs) |
 <!---LeetCode Topics End-->
