@@ -25,6 +25,12 @@ class Solution {
             return;
         }
 
+        if(with){
+            dp[target][pos][0] = true;
+        }else{
+            dp[target][pos][1] = true;
+        }
+
 
         if(target==0){
              if(ans.contains(values)==false){
@@ -45,11 +51,7 @@ class Solution {
 
 
 
-        if(with){
-            dp[target][pos][0] = true;
-        }else{
-            dp[target][pos][1] = true;
-        }
+      
 
         List<Integer> res2 = new ArrayList();
 
