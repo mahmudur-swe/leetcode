@@ -17,8 +17,7 @@ class Solution {
         int[][] ans = new int[pos+1][2];
 
         for(int i=0;i<=pos;i++){
-            ans[i][0] = intervals[i][0];
-            ans[i][1] = intervals[i][1];
+            ans[i] = intervals[i];
         }
 
         return ans;
