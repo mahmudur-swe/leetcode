@@ -1,67 +1,27 @@
 class Solution {
 
-    List<List<Integer>> ans = new ArrayList();
-
-    boolean[][][] dp;
-
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-
-        dp = new boolean[target+1][candidates.length][2];
-
-        combinationSum(candidates, target , 0 , new ArrayList(),false);
-
-
-        return ans;
+  public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> list =new ArrayList<>();
+        List<Integer> arr=new ArrayList<>();
+        calc(0,arr,candidates,target,list);
+        return list;   
     }
-
-
-    public void combinationSum(int[] candidates, int target,int pos,List<Integer> values, boolean with) {
-        
-        if(pos>=candidates.length){
-            return;
-        }
-
-        if(target<0){
-            return;
-        }
-
-        if(with){
-            dp[target][pos][0] = true;
-        }else{
-            dp[target][pos][1] = true;
-        }
-
-
-        if(target==0){
-            
-             ans.add(values);
-
-
-        if(with){
-            if(dp[target][pos][0] == true){
-                return;
+    public void calc(int ind,List<Integer> arr,int[] cad,int tar,List<List<Integer>> list)
+    {
+        if(ind==cad.length)
+        {
+            if(tar==0)
+            {
+                list.add(new ArrayList<>(arr));
             }
-        }else{
-            if(dp[target][pos][1] == true){
                 return;
-            }
         }
+        if(cad[ind]<=tar)
+        {
+            arr.add(cad[ind]);
+            calc(ind,arr,cad,tar-cad[ind],list);
+            arr.remove(arr.size()-1);
         }
-
-
-
-      
-
-        List<Integer> res2 = new ArrayList();
-
-        res2.addAll(values);
-
-        combinationSum(candidates, target, pos+1, res2, false);
-      
-        res2.add(candidates[pos]);
-
-        combinationSum(candidates, target - candidates[pos], pos, res2,true);
-
-
+        calc(ind+1,arr,cad,tar,list);
     }
 }
