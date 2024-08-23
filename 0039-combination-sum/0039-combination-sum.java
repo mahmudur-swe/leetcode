@@ -18,8 +18,7 @@ class Solution {
             return;
         }
 
-       
-
+    
         if(target - candidates[pos] == 0){
             List<Integer> res = new ArrayList();
             res.addAll(values);
@@ -46,10 +45,7 @@ class Solution {
 
             List<Integer> res4 = new ArrayList();
 
-            res4.addAll(values);
-            res4.add(candidates[pos]);
-
-            combinationSum(candidates, target - candidates[pos], pos+1, res4);
+       
 
    
 
