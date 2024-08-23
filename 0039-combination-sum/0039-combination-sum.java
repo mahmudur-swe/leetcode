@@ -18,15 +18,14 @@ class Solution {
             return;
         }
 
-    
-        if(target - candidates[pos] == 0){
-            List<Integer> res = new ArrayList();
-            res.addAll(values);
-            res.add(candidates[pos]);
-            if(ans.contains(res)==false){
-                ans.add(res);
+        if(target==0){
+             if(ans.contains(values)==false){
+                ans.add(values);
             }
         }
+
+    
+    
 
         List<Integer> res2 = new ArrayList();
 
@@ -36,14 +35,14 @@ class Solution {
 
         boolean ifAdded = false;
 
-         List<Integer> res3 = new ArrayList();
+        List<Integer> res3 = new ArrayList();
 
-            res3.addAll(values);
-            res3.add(candidates[pos]);
+        res3.addAll(values);
+        res3.add(candidates[pos]);
 
-            combinationSum(candidates, target - candidates[pos], pos, res3);
+        combinationSum(candidates, target - candidates[pos], pos, res3);
 
-            List<Integer> res4 = new ArrayList();
+        List<Integer> res4 = new ArrayList();
 
        
 
