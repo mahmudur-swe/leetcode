@@ -30,10 +30,11 @@ class Solution {
 
     private int change(int[] coins, int amount,int pos){
         
-        if(pos == coins.length){
-             if(amount == 0){
+        if(amount == 0){
             return 0;
         }
+
+        if(pos == coins.length){
             return  Integer.MAX_VALUE;
         }
 
