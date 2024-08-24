@@ -4,29 +4,31 @@ class Solution {
         int m = grid.length;
         int n = grid[0].length;
 
-        int[][] visited = new int[m][n];
+        int[][] visited = new int[m+1][n+1];
 
-           for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                visited[i][j] = 200*n*m+1;
-            }
+        for(int i=0;i<=m;i++){
+             visited[i][0] = 200*n*m+1;
+        }
+
+        for(int j=0;j<=n;j++){
+            visited[0][j] = 200*n*m+1;
         }
 
 
-        visited[0][0] = grid[0][0];
+        visited[1][0] = 0;
+        visited[0][1] = 0;
 
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                if(i+1<m){
-                    visited[i+1][j] = Math.min(grid[i+1][j]+visited[i][j],visited[i+1][j]);
-                }
-                if(j+1<n){
-                    visited[i][j+1] = Math.min(grid[i][j+1]+visited[i][j],visited[i][j+1]);
-                }
+        visited[1][1] = 200*n*m+1;
+
+        for(int i=1;i<=m;i++){
+            for(int j=1;j<=n;j++){
+                visited[i][j] = Math.min(grid[i-1][j-1]+visited[i-1][j],grid[i-1][j-1]+visited[i][j-1]);
+                //visited[i][j] = Math.min(grid[i-1][j-1]+visited[i][j-1],visited[i][j]);
+
             }
         }
 
-        return visited[m-1][n-1];
+        return visited[m][n];
 
 
 
