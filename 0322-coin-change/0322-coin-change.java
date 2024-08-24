@@ -1,6 +1,6 @@
 class Solution {
 
-    int[][] dp;
+    int[] dp;
 
     public int coinChange(int[] coins, int amount) {
 
@@ -9,26 +9,54 @@ class Solution {
             return 0;
         }
 
-        dp = new int[amount+1][coins.length];
+        dp = new int[amount+1];
+
+        
 
         for(int i=0;i<=amount;i++){
-            for(int j=0;j<coins.length;j++){
-                dp[i][j] = -1;
-            }
-            
+             dp[i] = Integer.MAX_VALUE;
         }
 
-        int val = change(coins,amount,0);
+        dp[0] = 0;
 
-        if(val == Integer.MAX_VALUE){
+        for(int j=0;j<coins.length;j++){
+            if(coins[j]<=amount){
+                dp[coins[j]] = 1;
+            } 
+        }
+
+        for(int i=0;i<=amount;i++){
+
+            for(int j=0;j<coins.length;j++){
+
+                int val = i - coins[j];
+
+                if(val >= 0){
+
+                    if(dp[val]!=Integer.MAX_VALUE){
+                        dp[i] = Math.min(dp[i],  1 + dp[val]);
+                    }
+                }
+
+            }
+            
+
+        }
+
+
+       // int val = change(coins,amount,0);
+
+
+        if(dp[amount] == Integer.MAX_VALUE){
             return -1;
         }
 
-        return val;
+        
+        return dp[amount];
     }
 
 
-    private int change(int[] coins, int amount,int pos){
+    /*private int change(int[] coins, int amount,int pos){
         
         if(amount == 0){
             return 0;
@@ -37,7 +65,6 @@ class Solution {
         if(pos == coins.length){
             return  Integer.MAX_VALUE;
         }
-
 
         if(dp[amount][pos]!=-1){
             return dp[amount][pos];
@@ -58,10 +85,10 @@ class Solution {
 
         }
 
-        dp[amount][pos] = Math.min(withOut,with);
-
-        return dp[amount][pos];
         
 
-    }
+        return dp[amount][pos] = Math.min(withOut,with);
+        
+
+    }*/
 }
