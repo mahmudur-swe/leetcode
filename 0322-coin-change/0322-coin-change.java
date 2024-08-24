@@ -1,6 +1,5 @@
 class Solution {
 
-    int[] dp;
 
     public int coinChange(int[] coins, int amount) {
 
@@ -9,9 +8,9 @@ class Solution {
             return 0;
         }
 
-        dp = new int[amount+1];
+        int[] dp = new int[amount+1];
 
-
+         Arrays.fill(dp, amount + 1);
 
         for(int i=0;i<=amount;i++){
              dp[i] = amount+1;
@@ -19,12 +18,7 @@ class Solution {
 
         dp[0] = 0;
 
-        for(int j=0;j<coins.length;j++){
-            if(coins[j]<=amount){
-                dp[coins[j]] = 1;
-            } 
-        }
-
+       
         for(int i=0;i<=amount;i++){
 
             for(int j=0;j<coins.length;j++){
