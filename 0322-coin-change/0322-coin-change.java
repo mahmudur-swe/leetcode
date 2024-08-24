@@ -11,10 +11,10 @@ class Solution {
 
         dp = new int[amount+1];
 
-        
+
 
         for(int i=0;i<=amount;i++){
-             dp[i] = Integer.MAX_VALUE;
+             dp[i] = amount+1;
         }
 
         dp[0] = 0;
@@ -33,9 +33,7 @@ class Solution {
 
                 if(val >= 0){
 
-                    if(dp[val]!=Integer.MAX_VALUE){
-                        dp[i] = Math.min(dp[i],  1 + dp[val]);
-                    }
+                    dp[i] = Math.min(dp[i],  1 + dp[val]);
                 }
 
             }
@@ -47,7 +45,7 @@ class Solution {
        // int val = change(coins,amount,0);
 
 
-        if(dp[amount] == Integer.MAX_VALUE){
+        if(dp[amount] > amount){
             return -1;
         }
 
