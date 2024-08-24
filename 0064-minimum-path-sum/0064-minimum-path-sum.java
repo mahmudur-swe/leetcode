@@ -17,7 +17,6 @@ class Solution {
 
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-
                 if(i+1<m){
                     visited[i+1][j] = Math.min(grid[i+1][j]+visited[i][j],visited[i+1][j]);
                 }
