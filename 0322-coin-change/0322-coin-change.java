@@ -12,9 +12,7 @@ class Solution {
 
          Arrays.fill(dp, amount + 1);
 
-        for(int i=0;i<=amount;i++){
-             dp[i] = amount+1;
-        }
+        
 
         dp[0] = 0;
 
