@@ -1,28 +1,35 @@
 class Solution {
     public int minPathSum(int[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
-        int[][] sum = new int[m+1][n+1];
-        for(int i=0;i<=m;i++){
-            sum[i][0] = Integer.MAX_VALUE;
-        }
-        for(int i=0;i<=n;i++){
-            sum[0][i] = Integer.MAX_VALUE;
+        
+        int[][] sum = new int[grid.length+1][grid[0].length+1];
+        
+        Arrays.stream(sum).forEach(a -> Arrays.fill(a,-1));
+        
+        return getAns(grid,0,0,sum);
+    }
+    
+    public int getAns(int[][] grid,int x,int y,int[][] sum){
+        
+        if(x>=grid.length){
+            return Integer.MAX_VALUE;
         }
         
-        for(int i=1;i<=m;i++){
-            for(int j=1;j<=n;j++){
-                if(i==1 && j==1){
-                    sum[i][j] = grid[i-1][j-1];
-                }else{
-                    sum[i][j] = Math.min(sum[i-1][j],sum[i][j-1])+grid[i-1][j-1];
-                }
+        if(y>=grid[0].length){
+            return Integer.MAX_VALUE;
+        }
            
-            }
+        if(sum[x][y]!=-1){
+            return sum[x][y];
         }
         
-        return sum[m][n];
+        if(x == grid.length-1 && y==grid[0].length-1){
+            return grid[x][y];
+        }
         
+        int ans1 = getAns(grid,x+1,y,sum);
+        int ans2 = getAns(grid,x,y+1,sum);
+           
+        return sum[x][y] = grid[x][y] + Math.min(ans1,ans2);
         
     }
 }
