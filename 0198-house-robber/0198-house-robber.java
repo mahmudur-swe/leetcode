@@ -24,19 +24,19 @@ class Solution {
             return dp[pos][with];
         }
 
-        int ans = 0;
+        int ans = rob(nums,pos+1,1);
 
         if(with==1){
             int ans1 = nums[pos] + rob(nums,pos+1,0);
-            int ans2 = rob(nums,pos+1,1);
+        
 
-            ans = Math.max(ans1,ans2);
+            ans = Math.max(ans,ans1);
 
         }else{
             int ans3 = rob(nums,pos+1,0);
-            int ans4 = rob(nums,pos+1,1);
+         
 
-            ans = Math.max(ans3,ans4);
+            ans = Math.max(ans,ans3);
         }
 
         return dp[pos][with] = ans;
