@@ -10,10 +10,7 @@ class Solution {
             dp[i][0] = dp[i][1] = -1;
         }
 
-        rob(nums,0,0);
-        rob(nums,0,1);
-
-        return Math.max(dp[0][1],dp[0][0]);
+        return rob(nums,0,1);
         
     }
 
