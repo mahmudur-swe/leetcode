@@ -23,8 +23,6 @@ class Solution {
             }else if(nums[mid] <= startValue ){
                 end = mid;
                 endValue = nums[mid];
-            }else{
-                start = mid;
             }
         }
 
