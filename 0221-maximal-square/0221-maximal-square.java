@@ -24,7 +24,6 @@ class Solution {
                     sum[i][j] = 0;
                 }else{
                     sum[i][j] = 1;
-                    ans = 1;
                 }
                 
                 sum[i][j] += (sum[i-1][j] + sum[i][j-1] - sum[i-1][j-1] );
