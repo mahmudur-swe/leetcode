@@ -22,6 +22,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0189-rotate-array](https://github.com/Tanim57/leetcode/tree/master/0189-rotate-array) |
 | [0198-house-robber](https://github.com/Tanim57/leetcode/tree/master/0198-house-robber) |
 | [0200-number-of-islands](https://github.com/Tanim57/leetcode/tree/master/0200-number-of-islands) |
+| [0221-maximal-square](https://github.com/Tanim57/leetcode/tree/master/0221-maximal-square) |
 | [0322-coin-change](https://github.com/Tanim57/leetcode/tree/master/0322-coin-change) |
 ## Two Pointers
 |  |
@@ -68,6 +69,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/Tanim57/leetcode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
 | [0124-binary-tree-maximum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
 | [0198-house-robber](https://github.com/Tanim57/leetcode/tree/master/0198-house-robber) |
+| [0221-maximal-square](https://github.com/Tanim57/leetcode/tree/master/0221-maximal-square) |
 | [0322-coin-change](https://github.com/Tanim57/leetcode/tree/master/0322-coin-change) |
 ## Greedy
 |  |
@@ -134,6 +136,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0064-minimum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0064-minimum-path-sum) |
 | [0200-number-of-islands](https://github.com/Tanim57/leetcode/tree/master/0200-number-of-islands) |
+| [0221-maximal-square](https://github.com/Tanim57/leetcode/tree/master/0221-maximal-square) |
 ## Union Find
 |  |
 | ------- |
