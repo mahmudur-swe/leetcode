@@ -48,8 +48,10 @@ class Solution {
 
                     //System.out.printf("%d %d: %d %d %d, %d\n",i,j,k,l,squareValue,sumValue);
 
-                    if(squareValue == (k-i)*(k-i)){
+                    if(squareValue == sumValue){
                         ans = Math.max(ans,squareValue);
+                    }else{
+                        break;
                     }
                     
                     k++;
