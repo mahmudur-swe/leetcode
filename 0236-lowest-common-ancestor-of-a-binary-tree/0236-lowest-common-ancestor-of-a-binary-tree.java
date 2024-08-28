@@ -10,47 +10,27 @@
 class Solution {
 
 
-    TreeNode ans;
-
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        hasAncestor(root,p,q);
-
-        if(ans==null){
-            ans = root;
+       public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null){
+            return null;
         }
-
-        return ans;
-
-    }
-
-
-
-    private boolean hasAncestor(TreeNode root, TreeNode p, TreeNode q){
-
-        if(root==null){
-            return false;
-        }
-
+        
         if(root.val == p.val || root.val == q.val){
-            //return true;
+            return root;
         }
-
-        if(ans!=null){
-            return false;
-        }
-
-        boolean LeftHas = hasAncestor(root.left, p, q);
-        boolean rightHas = hasAncestor(root.right, p, q);
-
-        if(ans == null){
-            if(LeftHas && rightHas){
-                ans = root;
-            }else if((LeftHas || rightHas) && (root.val == p.val || root.val == q.val)){
-                ans = root;
-            }
-        }
-
-        return LeftHas || rightHas || root.val == p.val || root.val == q.val;
-    }  
+        
+        TreeNode left = lowestCommonAncestor(root.left,p,q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
+        
+        if(left!=null && right!=null){
+            return root;
+        }else if(left!=null){
+            return left;
+        }else if(right!=null)
+            return right;
+        
+        return null;
+        
+    }
 
 }
