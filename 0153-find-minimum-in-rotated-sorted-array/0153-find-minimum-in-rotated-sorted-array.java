@@ -20,7 +20,7 @@ class Solution {
             if(nums[mid] > endValue ){
                 start = mid+1;
                 startValue = nums[mid];
-            }else if(nums[mid] <= startValue ){
+            }else {
                 end = mid;
                 endValue = nums[mid];
             }
