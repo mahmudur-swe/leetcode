@@ -33,7 +33,7 @@ class Solution {
         }
 
         if(grid[i][j] == '1'){
-            grid[i][j] = '2';
+            grid[i][j] = '0';
         }
 
         markasVisited(grid,i+1,j);
