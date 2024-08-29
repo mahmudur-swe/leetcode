@@ -13,11 +13,7 @@ class Solution {
 
     public int maxPro(int[] prices,int pos,int buy,int transactionCount){
 
-        if(pos==prices.length){
-            return 0;
-        }
-
-        if(transactionCount==4){
+        if(pos==prices.length || transactionCount==4){
             return 0;
         }
 
@@ -41,7 +37,6 @@ class Solution {
 
         ans = Math.max(ans,maxVal);
 
-        //System.out.print( pos + "  " + ans + "  " + buy + "\n"); 
 
         visited[pos][transactionCount][buy] = true;
 
