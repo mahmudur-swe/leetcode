@@ -5,7 +5,7 @@ class Solution {
     public int maxProfit(int[] prices) {
         int transactionCount = 0;
 
-        dp = new int[prices.length+1][4][2];
+        dp = new int[prices.length][4][2];
     
 
          for (int i = 0; i < dp.length; i++) {
