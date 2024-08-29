@@ -27,20 +27,19 @@ class Solution {
         
         int ans = 0;
 
+        int maxVal = maxPro(prices,pos+1,buy,transactionCount);
+
         if(buy==1){
 
-            int sum1 = maxPro(prices,pos+1,buy,transactionCount);
-            int sum2 = prices[pos] + maxPro(prices,pos+1, 0,transactionCount+1);
+            ans = prices[pos] + maxPro(prices,pos+1, 0,transactionCount+1);
 
-            ans = Math.max(sum1,sum2);
-
+        
         }else{
+            ans = maxPro(prices,pos+1,1,transactionCount+1) - prices[pos];
 
-            int sum1 = maxPro(prices,pos+1,buy,transactionCount);
-            int sum2 = maxPro(prices,pos+1,1,transactionCount+1) - prices[pos];
-
-            ans = Math.max(sum1,sum2);
         }
+
+        ans = Math.max(ans,maxVal);
 
         //System.out.print( pos + "  " + ans + "  " + buy + "\n"); 
 
