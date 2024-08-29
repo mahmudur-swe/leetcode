@@ -34,13 +34,15 @@ class Solution {
         int maxVal = maxPro(prices,pos+1,buy,transactionCount);
 
         if(buy==1){
-            ans = prices[pos] + maxPro(prices,pos+1, 0,transactionCount+1);
+     
+            return dp[pos][transactionCount][buy] = Math.max(prices[pos] + maxPro(prices,pos+1, 0,transactionCount+1),maxVal);
         }else{
-            ans = maxPro(prices,pos+1,1,transactionCount+1) - prices[pos];
+      
+                 return dp[pos][transactionCount][buy] = Math.max( maxPro(prices,pos+1,1,transactionCount+1) - prices[pos],maxVal);
         }
 
     
-        return dp[pos][transactionCount][buy] = Math.max(ans,maxVal);
+        
 
 
     }
