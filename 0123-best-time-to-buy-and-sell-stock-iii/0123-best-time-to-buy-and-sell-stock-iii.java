@@ -6,7 +6,15 @@ class Solution {
         int transactionCount = 0;
 
         dp = new int[prices.length+1][4][2];
-        visited = new boolean[prices.length][4][2];
+      
+
+         for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[i].length; j++) {
+                for (int k = 0; k < dp[i][j].length; k++) {
+                    dp[i][j][k] = -1;
+                }
+            }
+        }
 
         return maxPro(prices,0,0,0);
     }
@@ -17,7 +25,7 @@ class Solution {
             return 0;
         }
 
-        if(visited[pos][transactionCount][buy]){
+        if(dp[pos][transactionCount][buy]!=-1){
             return dp[pos][transactionCount][buy];
         }
         
@@ -38,7 +46,7 @@ class Solution {
         ans = Math.max(ans,maxVal);
 
 
-        visited[pos][transactionCount][buy] = true;
+       // visited[pos][transactionCount][buy] = true;
 
         return dp[pos][transactionCount][buy] = ans;
 
