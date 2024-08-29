@@ -29,7 +29,6 @@ class Solution {
             return dp[pos][transactionCount][buy];
         }
         
-        int ans = 0;
 
         int maxVal = maxPro(prices,pos+1,buy,transactionCount);
 
@@ -38,7 +37,7 @@ class Solution {
             return dp[pos][transactionCount][buy] = Math.max(prices[pos] + maxPro(prices,pos+1, 0,transactionCount+1),maxVal);
         }else{
       
-                 return dp[pos][transactionCount][buy] = Math.max( maxPro(prices,pos+1,1,transactionCount+1) - prices[pos],maxVal);
+            return dp[pos][transactionCount][buy] = Math.max( maxPro(prices,pos+1,1,transactionCount+1) - prices[pos],maxVal);
         }
 
     
