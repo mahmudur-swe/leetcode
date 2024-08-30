@@ -115,9 +115,6 @@ class LRUCache {
 
         if(endNode == null){
             endNode = startNode;
-            if(endNode!=null){
-                endNode.next = null;
-            }
         }     
 
         
