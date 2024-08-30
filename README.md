@@ -48,6 +48,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
 | [0169-majority-element](https://github.com/Tanim57/leetcode/tree/master/0169-majority-element) |
+| [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
 ## Divide and Conquer
 |  |
 | ------- |
@@ -153,12 +154,15 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
+| [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
 ## Design
 |  |
 | ------- |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
+| [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
 ## Doubly-Linked List
 |  |
 | ------- |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
+| [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
 <!---LeetCode Topics End-->
