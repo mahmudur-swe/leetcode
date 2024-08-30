@@ -70,7 +70,6 @@ class LRUCache {
 
         if(end == null){
             endNode = start;
-           
         }else{
             end.pre = start;
            
@@ -86,11 +85,6 @@ class LRUCache {
 
         if(nodeMapper[key] == null && currentCacheSize+1>capacity){
             
-            System.out.println("Hello World!");
-
-            if(endNode!=null){
-                System.out.println(endNode.data);
-            }
             
             removeCache(endNode);
         }
