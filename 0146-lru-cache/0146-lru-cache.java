@@ -62,26 +62,18 @@ class LRUCache {
 
         if(start == null){
             startNode = end;
-            if(startNode!=null){
-                startNode.pre = null;
-            }
+           
         }else{
             start.next = end;
-            if(end!=null){
-                end.pre = start;
-            }
+           
         }
 
         if(end == null){
             endNode = start;
-            if(endNode!=null){
-                endNode.next = null;
-            }
+           
         }else{
             end.pre = start;
-            if(start!=null){
-                start.next = end;
-            }
+           
         }
         
         nodeMapper[maper.key] = null;
