@@ -27,12 +27,12 @@ class Solution {
                     double prob = succProb[j];
 
                     if(visited[end] < visited[start] * prob ){
-                        visited[end] = Math.max(visited[end], visited[start] * prob);
+                        visited[end] =  visited[start] * prob;
                         hasUpdate = true;
                     }
 
                    if(visited[start] < visited[end] * prob ){
-                        visited[start] = Math.max(visited[start], visited[end] * prob);
+                        visited[start] = visited[end] * prob;
                         hasUpdate = true;
                     }
 
