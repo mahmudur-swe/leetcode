@@ -27,6 +27,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0200-number-of-islands](https://github.com/Tanim57/leetcode/tree/master/0200-number-of-islands) |
 | [0221-maximal-square](https://github.com/Tanim57/leetcode/tree/master/0221-maximal-square) |
 | [0322-coin-change](https://github.com/Tanim57/leetcode/tree/master/0322-coin-change) |
+| [1325-path-with-maximum-probability](https://github.com/Tanim57/leetcode/tree/master/1325-path-with-maximum-probability) |
 ## Two Pointers
 |  |
 | ------- |
@@ -165,4 +166,16 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
 | [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
+## Graph
+|  |
+| ------- |
+| [1325-path-with-maximum-probability](https://github.com/Tanim57/leetcode/tree/master/1325-path-with-maximum-probability) |
+## Heap (Priority Queue)
+|  |
+| ------- |
+| [1325-path-with-maximum-probability](https://github.com/Tanim57/leetcode/tree/master/1325-path-with-maximum-probability) |
+## Shortest Path
+|  |
+| ------- |
+| [1325-path-with-maximum-probability](https://github.com/Tanim57/leetcode/tree/master/1325-path-with-maximum-probability) |
 <!---LeetCode Topics End-->
