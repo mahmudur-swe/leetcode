@@ -39,7 +39,7 @@ class Solution {
                 }
 
                 if(!hasUpdate){
-                    break;
+                   // break;
                 }
 
                 // for (int i = 0; i < paths[top].size(); i++) {
