@@ -17,7 +17,7 @@ class Solution {
             //if (paths[top] != null) 
             {
                 
-                boolean hasUpdate = false;
+            //    boolean hasUpdate = false;
 
                 for (int j = 0; j < edges.length; j++) {
 
@@ -28,19 +28,19 @@ class Solution {
 
                     if(visited[end] < visited[start] * prob ){
                         visited[end] =  visited[start] * prob;
-                        hasUpdate = true;
+                     //   hasUpdate = true;
                     }
 
                    if(visited[start] < visited[end] * prob ){
                         visited[start] = visited[end] * prob;
-                        hasUpdate = true;
+                       // hasUpdate = true;
                     }
 
                 }
 
-                if(!hasUpdate){
-                   // break;
-                }
+                // if(!hasUpdate){
+                //    // break;
+                // }
 
                 // for (int i = 0; i < paths[top].size(); i++) {
 
