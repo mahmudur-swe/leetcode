@@ -111,6 +111,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0200-number-of-islands](https://github.com/Tanim57/leetcode/tree/master/0200-number-of-islands) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/Tanim57/leetcode/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/Tanim57/leetcode/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
+| [0813-all-paths-from-source-to-target](https://github.com/Tanim57/leetcode/tree/master/0813-all-paths-from-source-to-target) |
 ## Binary Tree
 |  |
 | ------- |
@@ -131,6 +132,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0039-combination-sum](https://github.com/Tanim57/leetcode/tree/master/0039-combination-sum) |
+| [0813-all-paths-from-source-to-target](https://github.com/Tanim57/leetcode/tree/master/0813-all-paths-from-source-to-target) |
 ## Memoization
 |  |
 | ------- |
@@ -141,6 +143,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0102-binary-tree-level-order-traversal](https://github.com/Tanim57/leetcode/tree/master/0102-binary-tree-level-order-traversal) |
 | [0200-number-of-islands](https://github.com/Tanim57/leetcode/tree/master/0200-number-of-islands) |
 | [0322-coin-change](https://github.com/Tanim57/leetcode/tree/master/0322-coin-change) |
+| [0813-all-paths-from-source-to-target](https://github.com/Tanim57/leetcode/tree/master/0813-all-paths-from-source-to-target) |
 ## Matrix
 |  |
 | ------- |
@@ -170,6 +173,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Graph
 |  |
 | ------- |
+| [0813-all-paths-from-source-to-target](https://github.com/Tanim57/leetcode/tree/master/0813-all-paths-from-source-to-target) |
 | [1325-path-with-maximum-probability](https://github.com/Tanim57/leetcode/tree/master/1325-path-with-maximum-probability) |
 | [2090-number-of-ways-to-arrive-at-destination](https://github.com/Tanim57/leetcode/tree/master/2090-number-of-ways-to-arrive-at-destination) |
 ## Heap (Priority Queue)
