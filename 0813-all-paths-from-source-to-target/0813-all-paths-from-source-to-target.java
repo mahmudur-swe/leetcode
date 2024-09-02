@@ -7,9 +7,9 @@ class Solution {
         
         path = new ArrayList[graph.length];
 
-        getPath(graph,0);
+       
 
-        return path[0];
+        return  getPath(graph,0);
     }
 
     private List<List<Integer>> getPath(int[][] graph,int pos){
@@ -47,20 +47,18 @@ class Solution {
         List<List<Integer>> ans = new ArrayList();
 
         
-
-
         for(int i=0;i<graph[pos].length;i++){
 
             List<List<Integer>> pathValues = getPath(graph,graph[pos][i]);
 
             for(int j=0;j<pathValues.size();j++){
+
                 List<Integer> val = new ArrayList();
 
                 val.add(pos);
 
                 val.addAll(pathValues.get(j));
 
-                //new ArrayList(p.get(j))
                 ans.add(val);
             }
             
