@@ -58,11 +58,7 @@ class Solution {
 
                 val.add(pos);
 
-                List<Integer> pp = pathValues.get(j);
-
-                for(int k=0;k<pp.size();k++){
-                    val.add(pp.get(k));
-                }
+                val.addAll(pathValues.get(j));
 
                 //new ArrayList(p.get(j))
                 ans.add(val);
