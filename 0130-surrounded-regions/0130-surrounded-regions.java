@@ -7,7 +7,6 @@ class Solution {
         m = board.length;
         n = board[0].length;
 
-
         for(int j=0;j<n;j++){
             if(board[0][j] == 'O'){
                 connect(board,0,j);
