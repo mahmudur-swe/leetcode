@@ -51,7 +51,7 @@ class Solution {
             }
         }
 
-        System.out.print(isRow0 + " " + isCol0);
+
 
         if (isRow0) {
             for (int i = 0; i < n; i++) {
