@@ -16,6 +16,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0056-merge-intervals](https://github.com/Tanim57/leetcode/tree/master/0056-merge-intervals) |
 | [0063-unique-paths-ii](https://github.com/Tanim57/leetcode/tree/master/0063-unique-paths-ii) |
 | [0064-minimum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0064-minimum-path-sum) |
+| [0073-set-matrix-zeroes](https://github.com/Tanim57/leetcode/tree/master/0073-set-matrix-zeroes) |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/Tanim57/leetcode/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
 | [0088-merge-sorted-array](https://github.com/Tanim57/leetcode/tree/master/0088-merge-sorted-array) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/Tanim57/leetcode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
@@ -50,6 +51,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/Tanim57/leetcode/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0073-set-matrix-zeroes](https://github.com/Tanim57/leetcode/tree/master/0073-set-matrix-zeroes) |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
 | [0169-majority-element](https://github.com/Tanim57/leetcode/tree/master/0169-majority-element) |
 | [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
@@ -156,6 +158,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0048-rotate-image](https://github.com/Tanim57/leetcode/tree/master/0048-rotate-image) |
 | [0063-unique-paths-ii](https://github.com/Tanim57/leetcode/tree/master/0063-unique-paths-ii) |
 | [0064-minimum-path-sum](https://github.com/Tanim57/leetcode/tree/master/0064-minimum-path-sum) |
+| [0073-set-matrix-zeroes](https://github.com/Tanim57/leetcode/tree/master/0073-set-matrix-zeroes) |
 | [0130-surrounded-regions](https://github.com/Tanim57/leetcode/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/Tanim57/leetcode/tree/master/0200-number-of-islands) |
 | [0221-maximal-square](https://github.com/Tanim57/leetcode/tree/master/0221-maximal-square) |
