@@ -7,10 +7,7 @@ class Solution {
         int m = matrix.length;
         int n = matrix[0].length;
 
-        if(matrix[0][0] == 0){
-            isRow0 = true;
-            isCol0 = true;
-        }
+   
 
         for (int i = 0; i < m; i++) {
             if (matrix[i][0] == 0) {
