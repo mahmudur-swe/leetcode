@@ -32,6 +32,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0322-coin-change](https://github.com/Tanim57/leetcode/tree/master/0322-coin-change) |
 | [0945-snakes-and-ladders](https://github.com/Tanim57/leetcode/tree/master/0945-snakes-and-ladders) |
 | [1325-path-with-maximum-probability](https://github.com/Tanim57/leetcode/tree/master/1325-path-with-maximum-probability) |
+| [1497-design-a-stack-with-increment-operation](https://github.com/Tanim57/leetcode/tree/master/1497-design-a-stack-with-increment-operation) |
 ## Two Pointers
 |  |
 | ------- |
@@ -98,6 +99,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/Tanim57/leetcode/tree/master/0042-trapping-rain-water) |
+| [1497-design-a-stack-with-increment-operation](https://github.com/Tanim57/leetcode/tree/master/1497-design-a-stack-with-increment-operation) |
 ## Monotonic Stack
 |  |
 | ------- |
@@ -183,6 +185,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
 | [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
+| [1497-design-a-stack-with-increment-operation](https://github.com/Tanim57/leetcode/tree/master/1497-design-a-stack-with-increment-operation) |
 ## Doubly-Linked List
 |  |
 | ------- |
