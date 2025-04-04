@@ -1,6 +1,7 @@
 class Solution {
 
     boolean[][] dp;
+    Map<Integer,Integer> map = new HashMap();
 
     public List<List<Integer>> threeSum(int[] nums) {
 
@@ -8,6 +9,8 @@ class Solution {
         dp = new boolean[length][length];
         
         Arrays.sort(nums);
+
+    
 
         List<List<Integer>> ans = new ArrayList();
 
@@ -55,9 +58,9 @@ class Solution {
             en--;
         }
         
-
-    
         getAns(nums, start,en,ans);
+
+        getAns(nums, st,en,ans);
 
       
 
