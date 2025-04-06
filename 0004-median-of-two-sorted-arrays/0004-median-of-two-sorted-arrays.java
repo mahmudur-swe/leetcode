@@ -1,67 +1,103 @@
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
+        int n = nums1.length;
+        int m = nums2.length;
+
+    
+        boolean isEven = (n+m)%2 == 0;
+
+        if(n==0){
+            
+            if(isEven){
+                return (nums2[m/2-1] + nums2[m/2])/2.0;
+            }else{
+                return  nums2[m/2];
+            }   
+        }
+
+        if(m==0){
+            if(isEven){
+                return (nums1[n/2-1] + nums1[n/2])/2.0;
+            }else{
+                return  nums1[n/2];
+            }   
+        }
+
         int i = 0;
         int j = 0;
 
-        int m = nums1.length;
-        int n = nums2.length;
+        int pos = 0;
 
-        int evenPastValue = 0;
-        double evenCount = 1.00 + 1.0*((1+ m + n) % 2);
+        double ans = 0.0;
 
-        int midPoint = (m + n) / 2;
+        while(pos < n + m){
 
-        while (i + j <= (m + n) / 2) {
+            if(isEven){
 
-            if (i + j == midPoint) {
-                if (i == m) {
-                    return (evenPastValue + nums2[j]) / evenCount;
-                } else if (j == n) {
-                    return (evenPastValue + nums1[i]) / evenCount;
-                } else if (nums1[i] <= nums2[j]) {
-                    return (evenPastValue + nums1[i]) / evenCount;
-                } else {
-                    return (evenPastValue + nums2[j]) / evenCount;
-                }
+                if(pos == (n + m) / 2 || pos == (n + m) / 2 - 1){
 
-            } else {
-
-                if ((m + n) % 2 == 0 && (i + j) == (m + n) / 2 - 1) {
-
-                    if (i == m) {
-                        evenPastValue = nums2[j];
-                        j++;
-                    } else if (j == n) {
-                        evenPastValue = nums1[i];
-                        i++;
-                    } else if (nums1[i] <= nums2[j]) {
-                        evenPastValue = nums1[i];
-                        i++;
-                    } else {
-                        evenPastValue = nums2[j];
-                        j++;
+                    if(i<n && j<m){
+                        ans += Math.min(nums1[i] , nums2[j]);
+                    }else if(i<n){
+                        ans += nums1[i];
+                    }else{
+                        ans += nums2[j];
                     }
 
-                } else {
+                   // System.out.println("Ans " + ans);
 
-                    if (i == m) {
-                        j++;
-                    } else if (j == n) {
-                        i++;
-                    } else if (nums1[i] <= nums2[j]) {
-                        i++;
-                    } else {
-                        j++;
-                    }
+
+                    
+
                 }
+
+            }else{
+
+                if(pos == (n + m) / 2){
+
+                    if(i<n && j<m){
+                        ans = Math.min(nums1[i] , nums2[j]);
+                    }else if(i<n){
+                        ans = nums1[i];
+                    }else{
+                        ans = nums2[j];
+                    }
+
+                }
+
+               
 
             }
 
+             if(i<n && j<m){
+                    if(nums1[i] <= nums2[j]){
+                        i++;
+                    }else{
+                        j++;
+                    }
+                }else if(i<n){
+                    i++;
+                }else{
+                    j++;
+                }
+
+           
+            
+            pos++;
+            
+
+
         }
 
-        return 0;
-    }
 
-   
+            
+
+            
+
+    return isEven? ans/2.0 : ans;
+
+        
+        
+    }
 }
