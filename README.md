@@ -74,6 +74,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Math
 |  |
 | ------- |
+| [0002-add-two-numbers](https://github.com/mahmudur-swe/leetcode/tree/master/0002-add-two-numbers) |
 | [0048-rotate-image](https://github.com/Tanim57/leetcode/tree/master/0048-rotate-image) |
 | [0070-climbing-stairs](https://github.com/Tanim57/leetcode/tree/master/0070-climbing-stairs) |
 | [0172-factorial-trailing-zeroes](https://github.com/Tanim57/leetcode/tree/master/0172-factorial-trailing-zeroes) |
@@ -183,6 +184,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Linked List
 |  |
 | ------- |
+| [0002-add-two-numbers](https://github.com/mahmudur-swe/leetcode/tree/master/0002-add-two-numbers) |
 | [0146-lru-cache](https://github.com/Tanim57/leetcode/tree/master/0146-lru-cache) |
 | [0460-lfu-cache](https://github.com/Tanim57/leetcode/tree/master/0460-lfu-cache) |
 ## Design
@@ -223,4 +225,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/Tanim57/leetcode/tree/master/0003-longest-substring-without-repeating-characters) |
+## Recursion
+|  |
+| ------- |
+| [0002-add-two-numbers](https://github.com/mahmudur-swe/leetcode/tree/master/0002-add-two-numbers) |
 <!---LeetCode Topics End-->
